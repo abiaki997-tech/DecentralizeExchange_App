@@ -1,0 +1,3 @@
+# SmartContract-Setup
+
+Hardhat,React
