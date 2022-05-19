@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity >= 0.7 .0 < 0.9 .0;
+pragma solidity >= 0.7.0 < 0.9.0;
 
 
 
@@ -18,11 +18,11 @@ contract Beast_Token is ERC20 {
 
 
 	function addTokens_Beast(uint _tokens) public {
-		_mint(msg.sender, _tokens * (10 ** 6));
+		_mint(msg.sender, _tokens * (10 ** 18));
 	}
 	
-	function approve_BeastToken(address to,uint tokens)public{
-		approve(to,tokens);
+	function approve_BeastToken(address to,uint tokens)public returns (bool value){
+		return approve(to,tokens);
 	}
 	
 	function transfer_BeastToken(address from,address to, uint amount) public returns (bool value){

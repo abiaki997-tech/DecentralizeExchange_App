@@ -1,4 +1,5 @@
 
+
 import React  from "react";
 import {
   BrowserRouter as Router,
@@ -6,10 +7,12 @@ import {
   Route
 } from "react-router-dom";
 
+
+
 //components
 import Home from './components/home';
 import User from './components/user';
-import Provide from './components/provide';
+import LiquidityPoolProvide from './components/provide';
 import Swap from './components/swap'
 
 
@@ -19,13 +22,13 @@ import Swap from './components/swap'
 
     <div className="App">
 
-      <h1>Decentralize Exchange</h1>
+      <h1 className="Dex_Header">Decentralize Exchange</h1>
       
       <Router>
         <Switch>
           <Route exact path="/" element={<Home/>}></Route>
           <Route exact path="/user" element={<User/>}></Route>
-          <Route exact path="/provide" element={<Provide/>}></Route>
+          <Route exact path="/provide" element={<LiquidityPoolProvide/>}></Route>
           <Route exact path="/swap" element={<Swap/>}></Route>
         </Switch>
       </Router>

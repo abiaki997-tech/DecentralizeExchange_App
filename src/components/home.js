@@ -7,10 +7,11 @@ function Home() {
   
 
   return (
-   <div>
+   <div className='home'>
           <div>
-                <button><Link to="/user">User</Link></button>
-                <button><Link to="/provide">Provide</Link></button>
+                <button className='button-33'><Link to="/user">User</Link></button>
+                <button className='button-33'><Link to="/provide">Provide</Link></button>
+                <button className='button-33'><Link to="/swap">Swap</Link></button>
           </div>
    </div>
   )

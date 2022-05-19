@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "type": "module",
     "build": "webpack --mode production",
     "start": "webpack serve --mode development --env development --port 9099 "
+
   },
   "keywords": [],
   "author": "",
@@ -15,7 +17,7 @@
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "chai": "^4.3.4",
     "ethereum-waffle": "^3.4.0",
-    "ethers": "^5.4.2",
+    "ethers": "^5.6.5",
     "hardhat": "^2.5.0",
     "html-webpack-plugin": "^5.3.2"
   },
@@ -28,6 +30,7 @@
     "css-loader": "^6.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
     "serve": "^12.0.0",
     "style-loader": "^3.3.1",

@@ -10,6 +10,7 @@ module.exports={
     output:{
         filename:"bundle.[hash].js",
         path:path.resolve(__dirname,"dist"),
+        publicPath: '/'
         
     },
     plugins:[new HtmlWebPackPlugin({template:"./src/index.html"})],
@@ -33,7 +34,10 @@ module.exports={
                 use: ["style-loader", "css-loader"]
             }
         ]
-    }
+    },
+    devServer: {
+        historyApiFallback: true,
+      }
     
 
 }

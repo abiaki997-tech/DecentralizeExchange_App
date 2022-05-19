@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity >= 0.7 .0 < 0.9 .0;
+pragma solidity >= 0.7.0 < 0.9.0;
 
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "./beast_token.sol";
@@ -15,13 +15,13 @@ contract Decentralize_Exchange
     Monster_Token t2;
 
 
-    uint price_Precision = 1 * (10 ** 6);
+    uint price_Precision = 1 * (10 ** 18);
 
     uint K;
     uint Token_A_Balance;
     uint Token_B_Balance;
     // uint Each_Token_A_Value =  1 ;
-     uint Each_Token_A_Value =  1 * price_Precision;
+    uint Each_Token_A_Value =  1 * price_Precision;
     // uint Each_Token_B_Value =  1 ;
     uint Each_Token_B_Value =  1 * price_Precision;
 
@@ -40,6 +40,12 @@ contract Decentralize_Exchange
 
 
     mapping(address => ProvidersDetails) public liquidityProvider;
+
+    constructor(address tokenA,address tokenB){
+            t1 = Beast_Token(tokenA);
+            t2 = Monster_Token(tokenB);
+    }
+
 
 
 
@@ -95,14 +101,14 @@ contract Decentralize_Exchange
 
         ProvidersDetails storage t = liquidityProvider[msg.sender];
 
-        t.value = t.value + tokenA_Value + tokenB_Value;
+        t.value =  tokenA_Value + tokenB_Value;
         t.token_A_Balance = t.token_A_Balance + token_A;
         t.token_B_Balance = t.token_B_Balance + token_B;
         t.tradingfee = 0;
 
         // subtract providers account value
         // step:1 approve(to,valu)  
-        // step:2transferfrom(from,to,value) 
+        // step:2 transferfrom(from,to,value) 
         deductedTokenA(msg.sender, address(this), token_A);
         deductedTokenB(msg.sender, address(this), token_B);
 
@@ -238,7 +244,7 @@ contract Decentralize_Exchange
         // t1.approve_BeastToken(msg.sender,given_TokenA); -- front end
         // t1.transfer_BeastToken(address(this),msg.sender,given_TokenA);
 
-   //  Transfer 
+         //  Transfer 
         // send to user
         t1.transfer_to_BeastToken(msg.sender,given_TokenA); //--existing
         // send to contract
