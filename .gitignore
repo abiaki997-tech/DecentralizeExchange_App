@@ -1,5 +1,4 @@
 node_modules
-.env
 
 #Hardhat files
 cache
@@ -8,3 +7,7 @@ artifacts
 # Dependency directories
 
 
+cache/solidity-files-cache.json
+.env
+.vscode/settings.json
+.env
