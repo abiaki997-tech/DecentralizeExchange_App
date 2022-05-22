@@ -1,19 +1,22 @@
+// import packages
 import React from "react";
 import { ethers, Signer, utils } from "ethers";
 import { MdOutlineSwapVert, MdKeyboardBackspace } from "react-icons/md";
 import { Link } from "react-router-dom";
 
+// import files
 import "../style.css";
 import Template from "./template";
-import {
-  BEAST_TOKEN_ADDRESS,
-  KGF_TOKEN_ADDRESS,
-  precision,
-  DEX_MAIN_ADDRESS,
-} from "../CONSTANTS";
+import {precision} from '../../CONST'
 import Beast_ABI from "../artifacts/contracts/beast_token.sol/Beast_Token.json";
 import KGF_ABI from "../artifacts/contracts/monster_token.sol/Monster_Token.json";
 import DEX_MAIN from "../artifacts/contracts/dex_main.sol/Decentralize_Exchange.json";
+
+// import dot env files
+let BEAST_TOKEN_ADDRESS=process.env.REACT_APP_BEAST_TOKEN_ADDRESS;
+let KGF_TOKEN_ADDRESS= process.env.REACT_APP_KGF_TOKEN_ADDRESS;
+let DEX_MAIN_ADDRESS= process.env.REACT_APP_DEX_MAIN_ADDRESS;
+
 import { handleConnectWallet } from "../helpers/connect_wallet";
 
 function LiquidityPoolProvide() {

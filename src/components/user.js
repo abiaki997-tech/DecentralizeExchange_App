@@ -1,15 +1,20 @@
+// import packages
 import React from "react";
 import { ethers, Signer, utils } from "ethers";
 import { MdAdd,MdKeyboardBackspace } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-
+// import files
 import "../style.css";
 import Template from "./template";
-import {BEAST_TOKEN_ADDRESS,KGF_TOKEN_ADDRESS, precision} from '../CONSTANTS';
+import {precision} from '../../CONST'
 import Beast_ABI from '../artifacts/contracts/beast_token.sol/Beast_Token.json';
 import KGF_ABI from '../artifacts/contracts/monster_token.sol/Monster_Token.json';
-import {handleConnectWallet} from '../helpers/connect_wallet'
+import {handleConnectWallet} from '../helpers/connect_wallet';
+
+// import dotenv 
+let BEAST_TOKEN_ADDRESS=process.env.REACT_APP_BEAST_TOKEN_ADDRESS;
+let KGF_TOKEN_ADDRESS= process.env.REACT_APP_KGF_TOKEN_ADDRESS;
 
 function User() {
   let [valueofBST, setValueofBST] = React.useState();
@@ -38,6 +43,7 @@ function User() {
     (async()=>{
       if (typeof window.ethereum !== 'undefined') {
   
+        console.log(BEAST_TOKEN_ADDRESS,KGF_TOKEN_ADDRESS,precision,'dotenv')
         const [account] = await window.ethereum.request({ method: 'eth_requestAccounts' })
   
         const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -241,7 +247,7 @@ function User() {
       </div>
 
       <div className="bottomDiv">
-        <div className="btn" onClick={() => mint_Token()}>
+        <div className="button-33" onClick={() => mint_Token()}>
           Connect Wallet
         </div>
       </div>
