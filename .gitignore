@@ -8,6 +8,6 @@ artifacts
 
 
 cache/solidity-files-cache.json
-.env
+
 .vscode/settings.json
 .env
